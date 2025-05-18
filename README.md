@@ -27,7 +27,8 @@ pip install opencv-python ultralytics
 
 **Downgrade แก้ปัญหา Numpy**
 ```
-python3 -m pip install --user --upgrade "numpy<2.0,>=1.26.4"
+pip uninstall numpy
+pip install --upgrade "numpy<2.0,>=1.26.4"
 ```
 
 **กำหนดตัวแปร แก้ Ulrealytics Auto Online Upgrade**

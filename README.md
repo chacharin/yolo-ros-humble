@@ -1,3 +1,8 @@
+**ตรวจสอบ port กล้อง**
+```
+ls /dev/video*
+```
+
 **ติดตั้ง ROS Dependencies**
 ```
 sudo apt update

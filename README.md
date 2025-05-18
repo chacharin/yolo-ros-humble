@@ -2,34 +2,50 @@
 ```
 sudo apt update
 ```
+```
 sudo apt install -y python3-pip ros-humble-cv-bridge ros-humble-vision-msgs
+```
 
 **สร้าง Package**
+```
+cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_python yolo_detection_pkg --dependencies rclpy sensor_msgs vision_msgs cv_bridge
-
+cd ~/ros2_ws/
+colcon build --symlink-install
+```
 
 **ตั้งตั้ง Python Library**
+```
 pip install opencv-python ultralytics
+```
+
 **Downgrade แก้ปัญหา Numpy**
+```
 python3 -m pip install --user --upgrade "numpy<2.0,>=1.26.4"
+```
+
 **กำหนดตัวแปร แก้ Ulrealytics Auto Online Upgrade**
+```
 export ULTRALYTICS_NO_AUTOINSTALL=1
 echo 'export ULTRALYTICS_NO_AUTOINSTALL=1' >> ~/.bashrc
+```
 
-
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
-# drop/clone yolo_detection_pkg here (plus any other packages)
-cd ~/ros2_ws
-rm -rf build install log        # if rebuilding
+**Build System**
+```
+cd ~/ros2_ws/
 colcon build --symlink-install
-source install/setup.bash
+```
 
+**Full Re - Build**
+```
+cd ~/ros2_ws
+rm -rf build install log 
+colcon build --symlink-install
+```
 
-
-ros2 launch yolo_detection_pkg yolo_pipeline.launch.py \
-      model_name:=yolov8n.pt \
-      camera_index:=0 \
-      imgsz:=320
+**Launch Project**
+```
+ros2 launch yolo_detection_pkg yolo_pipeline.launch.py
+```
 
 

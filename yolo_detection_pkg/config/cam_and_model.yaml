@@ -1,0 +1,9 @@
+node_read_cam:
+  ros__parameters:
+    camera_index: 0            # USB-camera index
+
+node_yolov8:
+  ros__parameters:
+    model_name: yolov8n.pt     # ← .pt model, relative path ok
+    imgsz: 320                 # (optional) network input size
+

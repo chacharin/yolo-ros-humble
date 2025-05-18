@@ -1,4 +1,6 @@
+#ติดตั้ง ROS Dependencies
 sudo apt update
+
 sudo apt install -y python3-pip ros-humble-cv-bridge ros-humble-vision-msgs
 
 ros2 pkg create --build-type ament_python yolo_detection_pkg --dependencies rclpy sensor_msgs vision_msgs cv_bridge
